@@ -2942,8 +2942,8 @@
             <span class="card-fx" aria-hidden="true"><b></b><b></b><b></b><i>✨</i></span>
             <span class="card-shine" aria-hidden="true"></span>
             <span class="interest-index">05 / TASTE</span>
-            <div class="interest-photo-preview">
-              <img alt="美食照片预览">
+            <div class="interest-photo-preview has-image">
+              <img src="images/food-3.jpg" alt="美食照片预览" loading="lazy">
               <span>🍰 点击进入故事</span>
             </div>
             <h3>🍰 美食</h3>
@@ -3096,10 +3096,11 @@
           title: "🍰 美食日记",
           intro: "认真吃饭，也认真记录那些让人心情变好的小味道。每一张照片都可以对应一段香香的回忆。",
           photos: [
-            ["今天吃什么", "放一张让你当下觉得很幸福的食物照片。"],
-            ["奶茶时间", "当然也可以放一张你的奶茶，毕竟它是快乐水。"],
-            ["私藏小店", "放一张喜欢的小店、甜品或招牌菜。"]
-          ]
+            ["今天吃什么", "一桌好菜端上来的那一刻，幸福感直接拉满。"],
+            ["冰咖啡时间", "一杯葡萄冰萃美式，是我那个下午的快乐水。"],
+            ["私藏小店", "麻布食堂，门口那朵大大的梅花一下就把我吸住了。"]
+          ],
+          defaultImages: ["images/food-3.jpg", "images/food-1.jpg", "images/food-2.jpg"]
         }
       };
 
@@ -3386,6 +3387,12 @@
           });
           const input = item.querySelector(".gallery-input");
           const galleryPhoto = item.querySelector(".gallery-photo");
+          const defaultImage = detail.defaultImages && detail.defaultImages[index];
+          if (defaultImage) {
+            const cover = galleryPhoto.querySelector("img");
+            cover.src = defaultImage;
+            galleryPhoto.classList.add("has-image");
+          }
           galleryPhoto.addEventListener("click", () => {
             if (galleryPhoto.classList.contains("has-image")) openLightbox(galleryPhoto);
             else input.click();
@@ -3609,9 +3616,11 @@
       }
 
       const CHAT_API_URL = "https://REPLACE_WITH_SCF_FUNCTION_URL";
+      const CHAT_API_READY = /^https:\/\/[a-z0-9.-]+/i.test(CHAT_API_URL) && !CHAT_API_URL.includes("REPLACE_WITH");
       function updateRulesText() {
-        document.getElementById("digitalRules").textContent =
-          "由 DeepSeek 驱动 · 聊天记录保存在当前浏览器";
+        document.getElementById("digitalRules").textContent = CHAT_API_READY
+          ? "由 DeepSeek 驱动 · 聊天记录保存在当前浏览器"
+          : "本地回复模式 · 接入 DeepSeek 后会自动切换";
       }
 
       async function askDeepSeek() {
@@ -3640,7 +3649,7 @@
         const typingRow = showTyping();
         let reply = null;
         try {
-          reply = await askDeepSeek();
+          if (CHAT_API_READY) reply = await askDeepSeek();
         } catch (error) {
           console.error(error);
           document.getElementById("digitalRules").textContent = "DeepSeek 连接失败，已临时使用本地回复";
