@@ -2900,8 +2900,8 @@
             <span class="card-fx" aria-hidden="true"><i>🎮</i><i>⭐</i><i>✨</i></span>
             <span class="card-shine" aria-hidden="true"></span>
             <span class="interest-index">01 / PLAY</span>
-            <div class="interest-photo-preview">
-              <img alt="游戏照片预览">
+            <div class="interest-photo-preview has-image">
+              <img src="images/game-1.jpg" alt="游戏照片预览" loading="lazy">
               <span>🎮 点击进入故事</span>
             </div>
             <h3>🎮 游戏</h3>
@@ -2914,8 +2914,8 @@
             <span class="card-fx" aria-hidden="true"><i>✈️</i><i>☁️</i><i>☁️</i></span>
             <span class="card-shine" aria-hidden="true"></span>
             <span class="interest-index">02 / GO</span>
-            <div class="interest-photo-preview">
-              <img alt="旅行照片预览">
+            <div class="interest-photo-preview has-image">
+              <img src="images/travel-1.jpg" alt="旅行照片预览" loading="lazy">
               <span>🧳 点击进入故事</span>
             </div>
             <h3>🧳 旅行</h3>
@@ -3066,29 +3066,31 @@
           title: "🎮 游戏时光",
           intro: "在游戏里收集故事、快乐和一点点暂时逃离日常的魔法。这里可以放游戏截图、喜欢的角色，或者某个让你记住很久的瞬间。",
           photos: [
-            ["我的游戏现场", "放一张你正在玩的画面，记录当时的沉浸感。"],
-            ["喜欢的角色", "放一张让你反复想起的角色或场景。"],
-            ["快乐存档", "放一张属于你的游戏小高光。"]
-          ]
+            ["星露谷物语", "我的小农场，种地、钓鱼、攒箱子，慢悠悠的日子最治愈。"],
+            ["双影奇境", "和朋友一起闯科幻世界，霓虹机甲那段太刺激了。"],
+            ["饥荒", "记得在冬天来临前囤好食物，还有别随便惹牦牛群。"]
+          ],
+          defaultImages: ["images/game-1.jpg", "images/game-2.jpg", "images/game-3.jpg"]
         },
         travel: {
           kicker: "02 / GO",
           title: "🧳 旅行途中",
           intro: "去看不同的风景，也去遇见不同版本的自己。照片旁边可以留下一点当时的天气、心情或小故事。",
           photos: [
-            ["出发啦", "放一张出发路上的照片，车站、行李或窗外都可以。"],
-            ["风景收藏", "放一张最喜欢的风景，让记忆重新亮起来。"],
-            ["旅途碎片", "放一张旅途中偶然发现的小可爱。"]
-          ]
+            ["深圳湾公园", "隔着海面看对岸的城市，风一吹整个人都安静下来。"],
+            ["玄武湖", "傍晚的日落把湖面染成金色，南京的天空太温柔了。"],
+            ["维多利亚港", "在维港看海和天际线，阴天也有阴天的氛围感。"]
+          ],
+          defaultImages: ["images/travel-1.jpg", "images/travel-2.jpg", "images/travel-3.jpg"]
         },
         music: {
           kicker: "03 / LISTEN",
           title: "🎵 音乐播放中",
           intro: "旋律像一条柔软的小路，陪你走过通勤、学习和发呆的时间。把喜欢的音乐氛围也放进主页里吧。",
           photos: [
-            ["敏感小孩", "沙一汀的专辑，拆专那一刻快乐直接翻倍。"],
             ["rosie 的专辑", "收藏的专辑，随手一拍都很有氛围感。"],
-            ["《浆果》", "单曲循环的一首歌，蓝色封面看着就很安静。"]
+            ["《浆果》", "单曲循环的一首歌，蓝色封面看着就很安静。"],
+            ["敏感小孩", "沙一汀的专辑，拆专那一刻快乐直接翻倍。"]
           ],
           defaultImages: ["images/music-1.jpg", "images/music-2.jpg", "images/music-3.jpg"]
         },
