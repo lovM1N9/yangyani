@@ -3024,6 +3024,7 @@
   <script>
     (() => {
       const avatarStorageKey = "yangyani-avatar";
+      const defaultAvatarUrl = "images/avatar.jpg";
       const chatStorageKey = "yangyani-digital-chat-v2";
       const interestPhotoStoragePrefix = "yangyani-interest-photo-";
       const interestPhotoDbName = "yangyani-homepage";
@@ -3182,15 +3183,11 @@
       }
 
       function setAvatar(dataUrl) {
+        const source = dataUrl || defaultAvatarUrl;
         linkedAvatarImages.forEach((image) => {
           if (!image) return;
-          if (dataUrl) {
-            image.src = dataUrl;
-            image.classList.add("has-image");
-          } else {
-            image.removeAttribute("src");
-            image.classList.remove("has-image");
-          }
+          image.src = source;
+          image.classList.add("has-image");
         });
 
         try {
